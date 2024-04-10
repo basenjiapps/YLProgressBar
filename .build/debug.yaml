@@ -1,0 +1,34 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "YLProgressBar-debug.module": ["<YLProgressBar-debug.module>"]
+  "main": ["<YLProgressBar-debug.module>"]
+  "test": ["<YLProgressBar-debug.module>"]
+default: "main"
+nodes:
+  "/Users/umasko/basenjiapps/YLProgressBar/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/YLProgressBar.build/YLProgressBar.m.o":
+    tool: clang
+    inputs: ["/Users/umasko/basenjiapps/YLProgressBar/Sources/YLProgressBar.m"]
+    outputs: ["/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/YLProgressBar.build/YLProgressBar.m.o"]
+    description: "Compiling YLProgressBar YLProgressBar.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-g","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=YLProgressBar","-I","/Users/umasko/basenjiapps/YLProgressBar/Sources/Headers","-fmodules-cache-path=/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/ModuleCache","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-MD","-MT","dependencies","-MF","/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/YLProgressBar.build/YLProgressBar.m.d","-c","/Users/umasko/basenjiapps/YLProgressBar/Sources/YLProgressBar.m","-o","/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/YLProgressBar.build/YLProgressBar.m.o"]
+    deps: "/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/YLProgressBar.build/YLProgressBar.m.d"
+
+  "<YLProgressBar-debug.module>":
+    tool: phony
+    inputs: ["/Users/umasko/basenjiapps/YLProgressBar/.build/arm64-apple-macosx/debug/YLProgressBar.build/YLProgressBar.m.o"]
+    outputs: ["<YLProgressBar-debug.module>"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/umasko/basenjiapps/YLProgressBar/Sources/","/Users/umasko/basenjiapps/YLProgressBar/Package.swift","/Users/umasko/basenjiapps/YLProgressBar/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

@@ -1,0 +1,4 @@
+module YLProgressBar {
+    umbrella header "/Users/umasko/basenjiapps/YLProgressBar/Sources/Headers/YLProgressBar.h"
+    export *
+}
